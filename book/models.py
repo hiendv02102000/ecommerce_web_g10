@@ -27,3 +27,22 @@ class Book (models.Model):
     Publisher = models.ForeignKey(Publisher, default = None, on_delete = models.CASCADE)
     def __str__(self):
         return f"{self.title}({self.publication_date})"
+class BookAuthor (models.Model):
+    id  = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255,null=False)
+    bio = models.CharField(max_length=255,null=False)
+    
+class Book_Author (models.Model):
+    id  = models.AutoField(primary_key=True)
+    Book = models.ForeignKey(Book, default = None, on_delete = models.CASCADE)
+    Author = models.ForeignKey(BookAuthor, default = None, on_delete = models.CASCADE)
+
+class ItemBook(models.Model):
+    id  = models.AutoField(primary_key=True)
+    Book = models.ForeignKey(Book, default = None, on_delete = models.CASCADE)
+    price = models.FloatField(null=True)
+    discount = models.FloatField(null=True)
+    promo_text = models.CharField(max_length=255,null=False)
+    decription = models.CharField(max_length=255,null=False)
+    inventory = models.CharField(max_length=255,null=False)
+    is_for_sale = models.BooleanField(default=True,null=False)
