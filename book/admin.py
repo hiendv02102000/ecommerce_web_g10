@@ -2,7 +2,7 @@
 from django.contrib import admin
 
 
-from book.models import Book, Book_Author, BookAuthor, CategoryBook, ItemBook, Publisher
+from book.models import Book, Book_Author, BookAuthor, CategoryBook, ItemBook, Publisher,ImageBook
 
 # Register your models here.
 #Book
@@ -38,6 +38,11 @@ class Book_AuthorAdmin(admin.ModelAdmin):
     list_display = ("Book","Author")
     search_fields = ["Book","Author"]
 admin.site.register(Book_Author,Book_AuthorAdmin)
+#ImageBook
+class ImageBookAdmin(admin.ModelAdmin):
+    list_display = ("src",)
+    search_fields = ["src"]
+admin.site.register(ImageBook,ImageBookAdmin)
 #ItemBook
 class ItemBookAdmin (admin.ModelAdmin):
     list_display = ("Book","price","discount","is_for_sale")
