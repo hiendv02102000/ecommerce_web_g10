@@ -41,7 +41,7 @@ class Book_Author (models.Model):
         return f"{self.Book}({self.Author})"
 class ImageBook (models.Model):
     id  = models.AutoField(primary_key=True)
-    src = models.CharField(max_length=255,null=False)
+    src = models.ImageField(max_length=255,null=False)
     def __str__(self):
         return f"{self.src}"
 class ItemBook(models.Model):
