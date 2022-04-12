@@ -40,7 +40,7 @@ class Book_AuthorAdmin(admin.ModelAdmin):
 admin.site.register(Book_Author,Book_AuthorAdmin)
 #ImageBook
 class ImageBookAdmin(admin.ModelAdmin):
-    list_display = ("src",)
+    list_display = ("src","id")
     search_fields = ["src"]
 admin.site.register(ImageBook,ImageBookAdmin)
 #ItemBook
